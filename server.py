@@ -46,8 +46,7 @@ def save_file(file_path: Path, metadata: dict, url: str):
 
 
 def get_save_dir() -> Optional[Path]:
-    directory_env = os.environ.get("SAVE_DIR")
-    if directory_env:
+    if directory_env := os.environ.get("SAVE_DIR"):
         directory = Path(directory_env)
         log.info("Saving files to %s", directory)
         return directory
